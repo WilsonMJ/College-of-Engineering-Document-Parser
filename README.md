@@ -1,3 +1,12 @@
+# Description
+This web application was developed by Michael Wilson, Justin Maloney, Benjamin Bradner, and Isaac Oh to assist Virginia Tech's College of Engineering advising staff with parsing and uploading academic documents.
+
+The application was built using Angular and Angular Material for the frontend and Flask and MySQL for the backend.  The application allows the user to upload a bulk document and have the document be parsed and submitted to Virginia Tech's document management system.
+
+To see an example of the functionality, check out [How_To_Use.pdf](https://github.com/WilsonMJ/College-of-Engineering-Document-Parser/blob/c512d0afaf0c9ddf7bfac926a878a388deae1ea4/How_To_Use.pdf)
+
+The public repository of this project is not functional due to the removal of sensitive information private to the university and development team members.
+
 # File Structure
 ## front-end
 Angular project built using `ng build --prod`.
