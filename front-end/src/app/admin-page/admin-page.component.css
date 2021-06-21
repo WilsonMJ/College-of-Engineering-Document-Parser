@@ -1,0 +1,43 @@
+.admin-page-contents{
+    display: flex;
+}
+
+.back-button-container {
+    width: 20%;
+}
+
+#back-button {
+    margin: 8px 0px 0px 8px;
+}
+
+.tabs {
+    width: 60%;
+    margin-top: 20px; 
+    justify-content: center;
+}
+
+.add-container {
+    margin-top: 20px; 
+    display: flex;
+    justify-content: center;
+}
+
+.add-button {
+    width: 20%;
+    height: 100%;
+    margin-top: 1%;
+    margin-left: 2%;
+}
+
+.display-box {
+    margin: 20px;
+}
+
+.list-box {
+    border-radius: 5px;
+    border: 2px solid #861F41;
+    margin: 3% 0% 2% 0%;
+    padding: 1% 1% 1% 1%;
+    height:400px;
+    overflow: auto;
+}

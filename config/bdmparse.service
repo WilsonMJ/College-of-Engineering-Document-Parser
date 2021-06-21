@@ -1,0 +1,12 @@
+[Unit]
+Description=Flask API for bdmparse backend
+After=network.target
+
+[Service]
+User=admin
+WorkingDirectory=/path/to/back-end
+ExecStart=/path/to/back-end/venv/bin/gunicorn --reload --workers=8 -b 127.0.0.1:5000 api:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

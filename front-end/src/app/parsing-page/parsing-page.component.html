@@ -1,0 +1,65 @@
+<div class="parse-page-contents" *ngIf="getUser">
+  <div class="admin-button-container">
+    <!--admin controls button-->
+    <button id="admin-button" mat-raised-button color="accent" *ngIf="isAdmin" (click)="routeToAdminControls()">Admin Controls</button>
+  </div>
+
+  <!--upload components-->
+  <div class="upload">
+    <div id="file-select-label">
+      <mat-label >Select Bulk Document to Parse: </mat-label>
+    </div>
+    
+    <!--file selection card-->
+    <div id="file-selector">
+      <mat-card>
+        <button id="browse-button" mat-raised-button color="primary" (click)="fileInput.click()">
+          <span>Browse</span>
+          <input #fileInput type="file" (change)="handleFileInput($event.target.files)" style="display:none;" />
+        </button>
+        <mat-label>{{fileName}}</mat-label>
+      </mat-card>
+    </div>
+    
+    <!--document and term code drop downs-->
+    <div id="document-type-and-term">
+      <mat-form-field id="document-type" appearance="fill">
+        <mat-label>Select Document Type</mat-label>
+        <mat-select (selectionChange)="selectDocumentTypeHandler($event)">
+          <mat-option value=""></mat-option>
+          <mat-option *ngFor="let document of documentTypes" [document]="document" value="{{document.documentType}}">{{document.documentType}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+      <mat-form-field id="term-code" appearance="fill">
+        <mat-label>Select Term Code</mat-label>
+        <mat-select (selectionChange)="selectTermCodeHandler($event)">
+          <mat-option value=""></mat-option>
+          <mat-option *ngFor="let code of termCodes" [code]="code" value="{{code.termCode}}">{{code.termCode}}</mat-option>
+        </mat-select>
+      </mat-form-field>    
+    </div>
+
+    <div>
+      <!--File Upload button-->
+      <button class="upload-button" mat-raised-button color="primary" *ngIf="!uploadStarted" 
+      [disabled]="!validUpload || !documentTypeIsSelected || !termCodeIsSelected" (click)="uploadFile()">Parse and Upload Document</button>
+      <button class="upload-button" mat-raised-button color="primary" *ngIf="uploadStarted" [disabled]="true">Uploading documents, please wait....</button>
+    </div>
+    
+    <div id="spinner-box" *ngIf="uploadStarted"><mat-spinner ></mat-spinner></div>
+    <div id="parse-output-box"*ngIf="!uploadStarted" >
+      <ul style="list-style-type: none;">
+        <p *ngFor="let line of parsedOutput" [line]="line">{{line}}</p>
+      </ul>
+    </div>
+  </div>
+
+  <!--welcome message that contains username and logout button-->
+  <div class="welcome-container">
+    <div id="welcome-label">
+      <mat-label>Welcome, {{currentUser.username}}</mat-label>
+      <button mat-raised-button color="primary" (click)="logout()" style="margin-top: 10px;">Logout</button>
+    </div>
+  </div>
+</div>

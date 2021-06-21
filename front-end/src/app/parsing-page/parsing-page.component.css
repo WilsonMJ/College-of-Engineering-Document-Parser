@@ -1,0 +1,105 @@
+.parse-page-contents{
+    display: flex;
+}
+
+.admin-button-container {
+    width: 20%;
+}
+
+#admin-button {
+    margin: 8px 0px 0px 8px;
+}
+
+.upload {
+    margin: auto;
+    padding: 30px;
+    width: 40%;
+}
+
+#file-select-label{
+    font-size: large;
+    padding: 0% 0% 1% 0%;
+}
+
+#file-selector {
+    padding: 0px 0px 20px 0px;
+}
+
+#browse-button {
+    width: 20%;
+    margin-right: 1%;
+}
+
+.document-type-and_term_code {
+    padding: 20px 0px 0px 0px;
+    color: #E87722;
+}
+
+
+::ng-deep .mat-focused .mat-form-field-label {
+    color: #E87722 !important;
+}
+
+::ng-deep.mat-form-field-underline {
+    background-color: #E87722 !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+    background-color: #E87722 !important;
+}
+
+#document-type {
+    width: 59%;
+    padding-right: 1%;
+}
+
+#term-code {
+    justify-content: right;
+    width: 40%;
+}
+
+.upload-button {
+    width: 100%;
+    min-width: unset;
+    font-size: large;
+}
+
+#progress-bar {
+    padding: 2% 0% 2% 0%;
+    margin: 1% 0% 1% 0%;
+}
+
+#spinner-box {
+    border-radius: 5px;
+    border: 2px solid #861F41;
+    margin: 3% 0% 2% 0%;
+    padding: 1% 1% 1% 1%;
+    height:400px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+
+#parse-output-box {
+    border-radius: 5px;
+    border: 2px solid #861F41;
+    margin: 3% 0% 2% 0%;
+    padding: 1% 1% 1% 1%;
+    height:400px;  
+    overflow: auto;
+}
+
+#parse-output-box p {
+    margin: 1px;
+}
+
+.welcome-container {
+    width: 20%;
+    text-align: right;
+}
+
+#welcome-label {
+    font-size: x-large;
+    margin: 12px 10px 0px 0px;
+}

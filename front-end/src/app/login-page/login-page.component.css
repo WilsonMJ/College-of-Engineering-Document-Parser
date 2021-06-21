@@ -1,0 +1,14 @@
+.login {
+    position: absolute;
+    top: 50%;
+    left: 50%;  
+    margin: -32.5px 0 0 -100px;
+}
+
+#login-button {
+    width: 200px;
+    height: 75px;
+    min-width: unset;
+    font-size: large;
+    
+}

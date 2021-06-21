@@ -1,0 +1,81 @@
+<div class="admin-page-contents">
+    <div class="back-button-container">
+        <button id="back-button" mat-raised-button color="accent" (click)="routeToParsePage()">Back</button>
+    </div>
+    <div class="tabs">
+        <mat-tab-group mat-stretch-tabs mat-align-tabs="center" animationDuration="0ms">
+            <mat-tab label="Document Types"> 
+                <div class="add-container">
+                    <mat-form-field appearance="fill" style="width: 70%">
+                        <mat-label>Enter Document Type Name: </mat-label>
+                        <input matInput #documentType value="" [(ngModel)]="validDocType" (keyup.enter)='addDocType(documentType.value)'> 
+                    </mat-form-field>
+                    <button class="add-button" mat-raised-button color="primary" [disabled]="!validDocType" (click)=addDocType(documentType.value)>Add Document Type</button>
+                </div> 
+                <div class="display-box">
+                    <h1 class="mat-display-1" style="margin-bottom: 0px">Document Types</h1>
+                    <div class="list-box">
+                        <ul style="list-style-type: none;">
+                            <li #dval *ngFor="let doc of documentTypes; let i = index">
+                                <h2 class="mat-h2" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; width:70%; float: left;">{{doc.documentType}}</h2>
+                                <button mat-raised-button color="primary" (click)=removeDocType(i) style="float: right; margin-right: 30px;">Remove</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Users">
+                <div class="add-container">
+                    <mat-form-field appearance="fill" style="width: 45%">
+                        <mat-label>Enter Username: </mat-label>
+                        <input matInput #username [(ngModel)]="validUserName" value=""> 
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" style="width: 25%; margin-left: 20px;">
+                        <mat-label>Select Role: </mat-label> 
+                        <mat-select #role (selectionChange)=selected()>
+                            <mat-option *ngFor="let enum of Role | keyvalue" value={{enum.value}}>{{enum.key}}</mat-option>
+                          </mat-select>
+                    </mat-form-field>
+                    <button class="add-button" mat-raised-button color="primary" [disabled]="!validUser || !validUserName" (click)=addUser(username.value,role.value)>Add User</button>
+                </div> 
+                <div class="display-box">
+                    <h1 class="mat-display-1" style="margin-bottom: 0px">Users</h1>
+                    <div class="list-box">
+                        <ul style="list-style-type: none;">
+                            <li #dval class="mat-h2" *ngFor="let user of users; let i = index" [user]="user">
+                                <div *ngIf="currentUser.username !== user.username">
+                                    {{user.username}}
+                                    <button mat-raised-button color="primary" (click)="removeUser(i)" style="float: right; margin-right: 30px;">Remove</button>
+                                    <mat-select [(value)]="user.role" (selectionChange)="changeRole(user.username,$event.value)" style="width: 20%; margin-right:5%; float:right;">
+                                        <mat-option *ngFor="let enum of Role | keyvalue" [value]="enum.key">{{enum.value}}</mat-option>
+                                    </mat-select>
+
+                                </div>
+                                
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Term Codes"> 
+                <div class="add-container">
+                    <mat-form-field appearance="fill" style="width: 70%">
+                        <mat-label>Enter Term Code: </mat-label>
+                        <input matInput #termCode [(ngModel)]="validTermCode" value="" (keyup.enter)='addTermCode(termCode.value)'> 
+                    </mat-form-field>
+                    <button class="add-button" mat-raised-button color="primary" [disabled]="!validTermCode" (click)=addTermCode(termCode.value)>Add Term Code</button>
+                </div> 
+                <div class="display-box">
+                    <h1 class="mat-display-1" style="margin-bottom: 0px">Term Codes</h1>
+                    <div class="list-box">
+                        <ul style="list-style-type: none;">
+                            <li #dval class="mat-h2" *ngFor="let code of termCodes; let i = index">{{code.termCode}}
+                                <button mat-raised-button color="primary" (click)=removeTermCode(i) style="float: right; margin-right: 30px;">Remove</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

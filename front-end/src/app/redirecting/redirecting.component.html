@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="loader" *ngIf="!loadedUser">
+        <mat-spinner></mat-spinner>
+    </div>
+    <div class="error" *ngIf="loadedUser && !validUser">
+        <h2 class="mat-title">You currently do not have access to this website. If this is an error please contact admin-email@vt.edu</h2>
+    </div>
+</div>
